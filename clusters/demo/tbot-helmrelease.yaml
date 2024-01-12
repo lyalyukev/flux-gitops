@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: tbot
+  namespace: demo
+spec:
+  chart:
+    spec:
+      chart: ./helm
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: tbot
+  interval: 1m0s
